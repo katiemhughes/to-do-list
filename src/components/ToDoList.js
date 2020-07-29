@@ -6,32 +6,42 @@ class ToDoList extends Component {
     super(props);
 
     this.state = {
-      //items is a property.
+
       items: [],
       inputText: ""
     };
   }
   //to change the state, use the setState() method (to re-render the UI).
 
-  submitTask() {
-    let temp = this.state.items
-    this.setState({
-      items: [...temp, this.state.inputText], inputText: ""
-      //here I want to display whatever the person entered as the next task below the input box.
-      //Fuses both states together
-    })
-  }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const { items, inputText } = this.state
+    const { handleInputForm } = this.props
 
-  //Do I need to access the previous state?
+    handleInputForm({ items, inputText })
+
+    //?? idk about line under
+
+    this.setState({ items: [], inputText: "" })
+  };
+
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
 
 
   render() {
+    const { items, inputText } = this.state
+
     return (
       <div className="todoListMain">
         <div>
-          <form onSubmit={this.addItem}>
-            <input placeholder="Next task" />
-            <button type="submit" onClick={() => this.submitTask()}> Add </button>
+          <form onSubmit={this.handleSubmit}>
+            <input
+            placeholder="Next task"
+            onChange={this.handleChange}
+             />
+            <button type="submit"> Add </button>
           </form>
           <p>{this.state.items}</p>
         </div>

@@ -8,11 +8,11 @@ class ToDoItems extends Component {
         </li>
     }
     render() {
-        let enteredItems = this.props.items;
+        const { props } = this.state;
 
         return(
-            <ul className="theList">
-                {enteredItems.map((item, index) => <li key={index}>{item.text}</li>)}
+            <ul>
+                {props.map((item, index) => <li key={index}>{item.text}</li>)}
             </ul>
         );
     }
