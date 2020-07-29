@@ -1,24 +1,17 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Header'
+import React, { component } from 'react'
+import './App.css'
+import '/.components/ToDoList'
 
-class App extends React.Component {
-
-  state = {
-    tasks: ["Task 1", "Task 2", "Task 3"]
-  };
-
+class App extends Component {
   render() {
-    return(
-      <div className="container">
-        <div className="card frame">
-          <Header />
-        </div>
+    return (
+      <div className="App">
+        <ToDoList />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 
 
