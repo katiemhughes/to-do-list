@@ -1,24 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ToDoItems extends Component {
-
-    createTasks(item) {
-        return <li key={item.key}>
-            {item.text}
-        </li>
-    }
-    render() {
-        const { props } = this.state;
+const ToDoItems = (props) => {  
 
         return(
             <ul>
-                {props.map((item, index) => <li key={index}>{item.text}</li>)}
+                {props.items.map((item) => 
+                {
+                    return <li>{item}</li>
+                })};
             </ul>
         );
-    }
+    
 }
 
-
+//items are the props that I am referring to here. 
+//singular item is what the map method is using as a parameter to refer to a single item in an array. We always need to use the singular version of whatever our array contains here.
 
 
 export default ToDoItems
