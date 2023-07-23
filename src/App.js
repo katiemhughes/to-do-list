@@ -51,7 +51,6 @@ class App extends Component {
         </div>
       </div>
     );
-    //in the tags I am passing the props down to the child components (ToDoItems)
   }
 }
 
